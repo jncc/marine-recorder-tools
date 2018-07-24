@@ -8,6 +8,8 @@
 #' # Enter aphia ID - Animalia (2)
 #' getParentID(2)
 #' #[1] 1
+#` @importFrom stringr
+#' @importFrom RCurl
 
 
 
@@ -22,7 +24,7 @@ getParentID <- function(inputAphiaID){
   restURL <- paste("http://www.marinespecies.org/rest//AphiaClassificationByAphiaID", inputAphiaID, sep="/")
   response <- getURL(restURL)
   regpattern <- "\"AphiaID\":([0-9]+)"
-  matches <- str_match_all(response, regpattern)
+  matches <- stringr::str_match_all(response, regpattern)
   matchgroups <- matches[[1]][,2] #vector or list containing full tree
   parentID <- as.integer(matchgroups[length(matchgroups)-1])
   
