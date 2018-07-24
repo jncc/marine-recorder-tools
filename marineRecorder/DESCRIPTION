@@ -1,0 +1,10 @@
+Package: marineRecorder
+Title: Provides functions to work with the Marine Recorder Snapshot.
+Version: 0.0.0.9000
+Authors@R: person("Roweena", "Patel", email = "roweena.patel@jncc.gov.uk", role = c("aut", "cre"))
+Description: This package provides a suite of function to work with the marine recorder snapshot available on the JNCC website. Functions include the extraction of tables, creation of shapefiles and species checks.
+Depends: R (>= 3.4.1)
+License: Open Government Licence (OGL)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
