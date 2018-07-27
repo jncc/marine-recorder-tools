@@ -1,6 +1,6 @@
-#' marineRecorder: A Package to work with the Marine Recorder Application
+#' marineRecorder: A package to work with the Marine Recorder Application
 #'
-#' mA Marine Recorder R Package was developed to work with the Marine Recorder snapshot (available on the JNCC website).
+#' Marine Recorder R package was developed to work with the Marine Recorder snapshot (available on the JNCC website).
 #' The R package contains functions to work with the snapshot by creating shapefiles, checking for new surveys and checking the species in the species dictionary (a separate database used with the main application).
 #'
 #' It has three main goals:
@@ -11,22 +11,21 @@
 #' \item Check for new surveys that have been added to the UK wide snapshot. - Currently in progress.
 #' }
 #'
+#' @author
+#' **Maintainer**: \email{MarineRecorder@jncc.gov.uk}
+#' \itemize{
+#' \item Roweena Patel
+#' \item Graeme Duncan
+#' \item Emily Sym}
 #'
-#' Currently in progress...To learn more about marineRecorder, start with the vignettes:
-#' `browseVignettes(package = "marineRecorder")`
+#' @seealso
 #'
+#' Useful links:
 #'
-#'
-#'
-#' @useDynLib marineRecorder, .registration = TRUE
-#' @import rlang
-#' @import dplyr
-#' @import worms
-#' @import daff
-#' @import stringr
-#' @import RCurl
-#' @import sqldf
+#' \itemize{
+#' \item Marine Recorder Information and Snapshot Download - \link{http://jncc.defra.gov.uk/page-1599}
+#' \item Marine Recorder Application Download - \link{https://www.esdm.co.uk/marine-recorder-downloads}}
 #'
 #' @docType package
 #' @name marineRecorder
-"_PACKAGE"
+NULL
