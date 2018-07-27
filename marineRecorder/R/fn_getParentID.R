@@ -8,14 +8,14 @@
 #' # Enter aphia ID - Animalia (2)
 #' getParentID(2)
 #' #[1] 1
-#` @importFrom stringr
+#' @importFrom stringr
 #' @importFrom RCurl
 
 
 
 getParentID <- function(inputAphiaID){
   #this function uses the worms API to fetch the parent ID record
-  
+
   require(RCurl)
   require(stringr)
   if(!is.na(inputAphiaID)){
@@ -27,7 +27,7 @@ getParentID <- function(inputAphiaID){
   matches <- stringr::str_match_all(response, regpattern)
   matchgroups <- matches[[1]][,2] #vector or list containing full tree
   parentID <- as.integer(matchgroups[length(matchgroups)-1])
-  
+
   return(parentID)
   }
   }
