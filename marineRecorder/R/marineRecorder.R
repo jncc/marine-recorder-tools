@@ -1,8 +1,7 @@
 #' marineRecorder: A Package to work with the Marine Recorder Application
 #'
 #' mA Marine Recorder R Package was developed to work with the Marine Recorder snapshot (available on the JNCC website).
-#' The R package contains functions to work with the snapshot by creating shapefiles, checking for new surveys and checking the species in the species dictionary (a separate database used with the main application). (hence the
-#' *d* in the name).
+#' The R package contains functions to work with the snapshot by creating shapefiles, checking for new surveys and checking the species in the species dictionary (a separate database used with the main application).
 #'
 #' It has three main goals:
 #'
@@ -18,7 +17,6 @@
 #'
 #'
 #'
-#
 #'
 #' @useDynLib marineRecorder, .registration = TRUE
 #' @import rlang
@@ -28,4 +26,7 @@
 #' @import stringr
 #' @import RCurl
 #' @import sqldf
+#'
+#' @docType package
+#' @name marineRecorder
 "_PACKAGE"
