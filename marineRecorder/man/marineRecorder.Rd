@@ -26,9 +26,14 @@ Useful links:
 \item Marine Recorder Application Download - \link{https://www.esdm.co.uk/marine-recorder-downloads}}
 }
 \author{
-**Maintainer**: \email{MarineRecorder@jncc.gov.uk}
+Maintainer: \email{MarineRecorder@jncc.gov.uk}
 \itemize{
 \item Roweena Patel
+}
+
+Contributors:
+\itemize{
+ \item Jordan Pinder
 \item Graeme Duncan
 \item Emily Sym}
 }

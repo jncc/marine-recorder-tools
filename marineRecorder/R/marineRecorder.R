@@ -12,9 +12,14 @@
 #' }
 #'
 #' @author
-#' **Maintainer**: \email{MarineRecorder@jncc.gov.uk}
+#' Maintainer: \email{MarineRecorder@jncc.gov.uk}
 #' \itemize{
 #' \item Roweena Patel
+#' }
+#'
+#' Contributors:
+#' \itemize{
+#'  \item Jordan Pinder
 #' \item Graeme Duncan
 #' \item Emily Sym}
 #'
