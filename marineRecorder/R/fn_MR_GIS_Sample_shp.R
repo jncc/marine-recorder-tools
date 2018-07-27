@@ -12,10 +12,11 @@
 #' @keywords Marine Recorder, GIS, shapefile, sample
 #' @export
 #' @examples
+#' MR_GIS_Sample()
 #' @import RODBC
 #' @import rgdal
 #' @import sp
-#' MR_GIS_Sample()
+#'
 
 MR_GIS_Sample <- function(snapshot_filepath, snapshot_version) {
   #connect to the database
