@@ -8,8 +8,8 @@
 #' # Enter aphia ID - Animalia (2)
 #' getParentID(2)
 #' #[1] 1
-#' @importFrom stringr
-#' @importFrom RCurl
+#' @import stringr
+#' @import RCurl
 
 
 

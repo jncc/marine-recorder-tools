@@ -30,8 +30,8 @@
 #' missingParentAphiaIDs(v)
 #' #[1] "All parent aphiaIDs are also individual records."
 #'
-#' @importFrom dplyr
-#' @importFrom worms
+#' @import dplyr
+#' @import worms
 
 
 addParentAphiaIDs <- function(dataset) {

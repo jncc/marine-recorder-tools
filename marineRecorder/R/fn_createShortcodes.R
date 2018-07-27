@@ -8,7 +8,7 @@
 #' # Enter a string
 #' createShortcodes("Salmo salar")
 #' #[1] "Salsal"
-#' @importFrom stringr
+#' @import stringr
 
 
 

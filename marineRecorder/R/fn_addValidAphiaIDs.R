@@ -27,10 +27,10 @@
 #' #[1] "All valid aphiaIDs are also individual records"
 #'
 #'
-#' @importFrom dplyr
-#' @importFrom worms
-#' @importFrom daff
-#' @importFrom sqldf
+#' @import dplyr
+#' @import worms
+#' @import daff
+#' @import sqldf
 
 
 addValidAphiaIDs <- function(dataset) {

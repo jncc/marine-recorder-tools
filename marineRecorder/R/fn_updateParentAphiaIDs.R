@@ -13,9 +13,9 @@
 #' #view the outputs
 #' View(x)
 #'
-#' @importFrom dplyr
-#' @importFrom RCurl
-#' @importFrom stringr
+#' @import dplyr
+#' @import RCurl
+#' @import stringr
 
 
 updateParentAphiaIDs <- function(dataset) {

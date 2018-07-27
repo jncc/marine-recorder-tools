@@ -14,7 +14,7 @@
 #' #[1] 6
 #' # Aphia ID 6 is a valid AphiaID for a record but is missing from the dataset. Use 'addValidAphiaIDs' function to enter this record.
 #'
-#' @importFrom dplyr
+#' @import dplyr
 
 
 

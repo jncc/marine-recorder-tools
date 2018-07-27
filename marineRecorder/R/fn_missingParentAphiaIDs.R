@@ -14,7 +14,7 @@
 #' missingParentAphiaIDs(x)
 #' #[1] 1 8
 #'
-#' @importFrom dplyr
+#' @import dplyr
 
 
 
