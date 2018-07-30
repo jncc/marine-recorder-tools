@@ -2,7 +2,7 @@
 `marineRecorder` Package <img src="man/figures/logo.png" align="right" width="150" />
 =====================================================================================
 
-A Marine Recorder R Package was developed to work with the snapshot. The R package contains functions to work with the snapshot by creating shapefiles, checking for new surveys and checking the species in the species dictionary (a separate database used with the main application).
+A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles and check species, which can be linked to the species dictionary (a separate database used with the main application).
 
 ### Installation of `marineRecorder` Package
 
@@ -24,25 +24,22 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 -   **missingValidAphiaIDs()** - identifies the missing valid aphia IDs from the data frame
 -   **updateParentAphiaIDs()** - updates parent aphia ID records
 
-### Dependencies
-
--   [RCurl](https://cran.r-project.org/web/packages/RCurl/index.html)
--   [RODBC](https://cran.r-project.org/web/packages/RODBC/index.html)
--   [daff](https://cran.r-project.org/web/packages/daff/index.html)
--   [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
--   [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html)
--   [sp](https://cran.r-project.org/web/packages/sp/index.html)
--   [sqldf](https://cran.r-project.org/web/packages/sqldf/index.html)
--   [stringr](https://cran.r-project.org/web/packages/stringr/index.html)
--   [worms](https://cran.r-project.org/web/packages/worms/index.html)
-
 ### Examples
 
-#### 1. MR\_GIS\_Sample() and MR\_GIS\_Species()
+#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species()
 
-To use this function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database.
+To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
-To change the version of R you are using in RStudio: 1. Click the '**Tools**' tab at the top of your RStudio window 2. Click on '**Global Options**' 3. Click on '**General**' tab in the left hand sidebar 4. Click '**Change**' under the '**R version:**' section 5. Click on '**Use your machine's default version of R (32-bit)**' and Click '**OK**' 6. A dialog box '**Change R Version**' will open stating '**You need to quit and re-open RStudio for this change to take effect.**' 7. Click '**OK**' 8. Click '**Apply**' followed by '**OK**' 9. Close and re-open RStudio 10. Call the `marineRecorder` package to the global environment using `library(marineRecorder)`
+1.  Click the '**Tools**' tab at the top of your RStudio window
+2.  Click on '**Global Options**'
+3.  Click on '**General**' tab in the left hand sidebar
+4.  Click '**Change**' under the '**R version:**' section
+5.  Click on '**Use your machine's default version of R (32-bit)**' and Click '**OK**'
+6.  A dialog box '**Change R Version**' will open stating '**You need to quit and re-open RStudio for this change to take effect.**'
+7.  Click '**OK**'
+8.  Click '**Apply**' followed by '**OK**'
+9.  Close and re-open RStudio
+10. Call the `marineRecorder` package to the global environment using `library(marineRecorder)`
 
 Also, to use this function you will need to download the Marine Recorder Snapshot available to download from the [JNCC Marine Recorder webpage](http://jncc.defra.gov.uk/page-1599). Once downloaded extract the Snapshot Access Database and copy into your working directory.
 
@@ -128,3 +125,15 @@ This function creates an abbreviation of a given string.
 createShortcodes("Salmo salar")
 #[1] "Salsal"
 ```
+
+### Dependencies
+
+-   [RCurl](https://cran.r-project.org/web/packages/RCurl/index.html)
+-   [RODBC](https://cran.r-project.org/web/packages/RODBC/index.html)
+-   [daff](https://cran.r-project.org/web/packages/daff/index.html)
+-   [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
+-   [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html)
+-   [sp](https://cran.r-project.org/web/packages/sp/index.html)
+-   [sqldf](https://cran.r-project.org/web/packages/sqldf/index.html)
+-   [stringr](https://cran.r-project.org/web/packages/stringr/index.html)
+-   [worms](https://cran.r-project.org/web/packages/worms/index.html)

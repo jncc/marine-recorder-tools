@@ -14,7 +14,7 @@ This function allows you add Parent records to your data frame and outputs missi
 }
 \details{
 This function depends on 'missingParentAphiaIDs' and 'updateParentAphiaIDs' functions.
-This function differs from those because of the outputs. Four outputs will be generate to know the Parent Aphia ID records that have been added in by their status.
+This function differs from those because of the outputs. Four outputs will be generated to identify the Parent Aphia ID records that have been added by their status.
 
 Outputs:
 dataset - input dataset with missing parents added in. If there is no "Parent_AphiaID" column the function will run the 'updateParentAphiaID' function.
