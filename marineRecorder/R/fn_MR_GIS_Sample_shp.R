@@ -19,6 +19,10 @@
 #'
 
 MR_GIS_Sample <- function(snapshot_filepath, snapshot_version) {
+  #check if running 32 bit version of R
+  if (Sys.getenv("R_ARCH") != "/i386"){
+  stop("Must be running 32 bit version of R!")
+}
   #connect to the database
   gdb <- RODBC::odbcConnectAccess(snapshot_filepath)
   #Add error statement if the R version is not 32 -bit
@@ -73,12 +77,15 @@ MR_GIS_Sample <- function(snapshot_filepath, snapshot_version) {
     )
 
   #write shape file - this is saved to your working directory
+
+  filename <- paste0("C", Sys.Date(), "_Sample_", snapshot_version)
   rgdal::writeOGR(spdf,
                   ".",
-                  paste0("C", Sys.Date(), "_Sample_", snapshot_version),
+                  filename,
                   driver = "ESRI Shapefile")
 
   RODBC::odbcCloseAll()
   #Return the shapefile to the global environment
+  print(paste("The shapefile", "'",filename, "'", "'has been saved to your working directory."))
   return(spdf)
 }

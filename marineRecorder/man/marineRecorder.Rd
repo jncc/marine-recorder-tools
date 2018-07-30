@@ -13,7 +13,7 @@ The R package contains functions to work with the snapshot by creating shapefile
 It has three main goals:
 
 \itemize{
-\item Creating shapefiles from the snapshot (Surveys, Samples, Species). - Currently in progress.
+\item Creating shapefiles from the snapshot (Samples, Species). - Currently in progress.
 \item To work with the World Register of Marine Species (WoRMS) API to check for valid taxa and to retrieve the parent taxa.
 \item Check for new surveys that have been added to the UK wide snapshot. - Currently in progress.
 }

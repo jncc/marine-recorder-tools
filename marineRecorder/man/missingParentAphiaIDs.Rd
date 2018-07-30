@@ -10,7 +10,7 @@ missingParentAphiaIDs(dataset)
 \item{dataset}{data frame that has the column "AphiaID" and "Parent.AphiaID.}
 }
 \description{
-This function allows you identify missing Parent records to your data frame.
+This function allows you to identify missing Parent records from your data frame.
 }
 \examples{
 data(marineKingdoms)
@@ -18,7 +18,7 @@ data(marineKingdoms)
 #run 'updateParentAphiaIDs' function
 x <- updateParentAphiaIDs(marineKingdoms)
 
-#Run missingParentAphiaIDs function to check if any parent records are missing from the dataset.
+#Run 'missingParentAphiaIDs' function to check if any parent records are missing from the dataset.
 missingParentAphiaIDs(x)
 #[1] 1 8
 

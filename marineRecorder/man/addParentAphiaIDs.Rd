@@ -14,7 +14,7 @@ This function allows you add Parent records to your data frame and outputs missi
 }
 \details{
 This function depends on 'missingParentAphiaIDs' and 'updateParentAphiaIDs' functions.
-This function differs from those as because of the outputs. Four outputs will be generate to know the Parent Aphia ID records that have been added in by their status.
+This function differs from those because of the outputs. Four outputs will be generate to know the Parent Aphia ID records that have been added in by their status.
 
 Outputs:
 dataset - input dataset with missing parents added in. If there is no "Parent_AphiaID" column the function will run the 'updateParentAphiaID' function.
@@ -29,11 +29,11 @@ u <- addParentAphiaIDs(marineKingdoms)
 
 #check for missing parents as individual records
 missingParentAphiaIDs(u)
+# Error in missingParentAphiaIDs(u) :
+#  Some Parent AphiaIDs are NA. Re- run 'updateParentAphiaIDs' function.
 
 #Run update parent IDs function
 v <- updateParentAphiaIDs(u)
-# Error in missingParentAphiaIDs(u) :
-#  Some Parent AphiaIDs are NA. Re- run 'updateParentAphiaIDs' function.
 
 #check for missing parents as individual records
 missingParentAphiaIDs(v)

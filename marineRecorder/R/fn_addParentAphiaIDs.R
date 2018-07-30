@@ -3,7 +3,7 @@
 #' @description This function allows you add Parent records to your data frame and outputs missing parents according to their status.
 #' @details
 #' This function depends on 'missingParentAphiaIDs' and 'updateParentAphiaIDs' functions.
-#' This function differs from those as because of the outputs. Four outputs will be generate to know the Parent Aphia ID records that have been added in by their status.
+#' This function differs from those because of the outputs. Four outputs will be generated to identify the Parent Aphia ID records that have been added by their status.
 #'
 #' Outputs:
 #' dataset - input dataset with missing parents added in. If there is no "Parent_AphiaID" column the function will run the 'updateParentAphiaID' function.
@@ -20,11 +20,11 @@
 #'
 #' #check for missing parents as individual records
 #' missingParentAphiaIDs(u)
+#' # Error in missingParentAphiaIDs(u) :
+#' #  Some Parent AphiaIDs are NA. Re- run 'updateParentAphiaIDs' function.
 #'
 #' #Run update parent IDs function
 #' v <- updateParentAphiaIDs(u)
-#' # Error in missingParentAphiaIDs(u) :
-#' #  Some Parent AphiaIDs are NA. Re- run 'updateParentAphiaIDs' function.
 #'
 #' #check for missing parents as individual records
 #' missingParentAphiaIDs(v)
@@ -35,7 +35,7 @@
 
 
 addParentAphiaIDs <- function(dataset) {
-  parents <- updateParentAphiaIDS(dataset)
+  parents <- updateParentAphiaIDs(dataset)
 
   missing_parents <- missingParentAphiaIDs(parents)
 
@@ -56,7 +56,7 @@ addParentAphiaIDs <- function(dataset) {
   #add missing parents to the iLUT
 
   updated_dataset <-
-    dplyr::bind_rows(parents, missing_parents_worms)
+    suppressWarnings(dplyr::bind_rows(parents, missing_parents_worms))
 
   ### these outputs are ready to be added into the LUT - but will be pooled for now.
 

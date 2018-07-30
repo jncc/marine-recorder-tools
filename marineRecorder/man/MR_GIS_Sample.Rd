@@ -21,6 +21,9 @@ The function will return a shapefile saved to your working directory.
 
 The saved shapefile will follow this format ("C", Sys.Date(), "_Sample_", snapshot_version) e.g. 'C2018-05-05_Sample_MRv5_Public_20161205.shp')
 }
+\examples{
+MR_GIS_Sample()
+}
 \keyword{GIS,}
 \keyword{Marine}
 \keyword{Recorder,}
