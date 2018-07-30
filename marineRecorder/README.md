@@ -16,6 +16,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 -   **MR\_GIS\_Sample()** - creates a shapefile of samples from the snapshot
 -   **MR\_GIS\_Species()** - creates a shapefile of species from the snapshot
+-   **newSurveys()** - find new surveys added to the new snapshot
 -   **addParentAphiaIDs()** - adds parent aphia IDs as records to the data frame
 -   **addValidAphiaIDs()** - adds valid aphia IDs, if valid aphia IDs are missing from the data frame
 -   **createShortcodes()** - creates short codes, first three letters of the first and second word from a given string
@@ -26,7 +27,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 ### Examples
 
-#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species()
+#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and NewSurveys()
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
@@ -42,6 +43,8 @@ To use these function you will need to use the **32-bit version** of R, for RODB
 10. Call the `marineRecorder` package to the global environment using `library(marineRecorder)`
 
 Also, to use this function you will need to download the Marine Recorder Snapshot available to download from the [JNCC Marine Recorder webpage](http://jncc.defra.gov.uk/page-1599). Once downloaded extract the Snapshot Access Database and copy into your working directory.
+
+##### Generate shapefiles
 
 **N.B.** These functions still use the 'sp' package and so the functions may take a while to run.
 
@@ -61,6 +64,23 @@ Sample <- MR_GIS_Sample(snapshot_filepath = filepath, snapshot_version = version
 Species <- MR_GIS_Species(snapshot_filepath = filepath, snapshot_version = version)
 #the following will be printed in the R Console 
 #[1] "The shapefile ' C2018-07-30_Species_SnapshotDatav51_Public_20180524 ' 'has been saved to your working directory."
+```
+
+##### Find new surveys
+
+The following function will also need a **32-bit version** of R.
+
+You will need two versions of a snapshot to compare. This function will work on any table found within the snapshot or access database e.g. 'Sample' table.
+
+``` r
+#find and paste new snapshot filepath 
+filepath_new_snapshot <- "SnapshotDatav51_Public_20180524.mdb"
+
+#find and paste old snapshot filepath 
+filepath_old_snapshot <- "SnapshotDatav51_Public_20180131.mdb"
+
+#run the function on the 'Survey' table where the primary key for the table is survey key
+surveysAdded <- newSurveys(DSN1 = filepath_new_snapshot, tablename1 = "Survey", DSN2 = filepath_old_snapshot, tablename2 = "Survey", primaryKey = "Survey_Key" )
 ```
 
 #### 2. Adding and finding missing valid aphia IDs

@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 # `marineRecorder` Package <img src="man/figures/logo.png" align="right" width="150" />
 
-A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles and check species, which can be linked to the species dictionary (a separate database used with the main application). 
+A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles, find the newly added surveys and check species to update the species dictionary (a separate database used with the main application). 
 
 ### Installation of `marineRecorder` Package
 
@@ -26,6 +26,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 * **MR_GIS_Sample()** - creates a shapefile of samples from the snapshot
 * **MR_GIS_Species()** - creates a shapefile of species from the snapshot
+* **newSurveys()** - find new surveys added to the new snapshot
 * **addParentAphiaIDs()** - adds parent aphia IDs as records to the data frame
 * **addValidAphiaIDs()** - adds valid aphia IDs, if valid aphia IDs are missing from the data frame
 * **createShortcodes()** - creates short codes, first three letters of the first and second word from a given string
@@ -37,7 +38,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 ### Examples
 
-#### 1. MR_GIS_Sample(), MR_GIS_Species()
+#### 1. MR_GIS_Sample(), MR_GIS_Species() and NewSurveys()
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
@@ -54,7 +55,10 @@ To use these function you will need to use the **32-bit version** of R, for RODB
 
 Also, to use this function you will need to download the Marine Recorder Snapshot available to download from the [JNCC Marine Recorder webpage](http://jncc.defra.gov.uk/page-1599). Once downloaded extract the Snapshot Access Database and copy into your working directory.
 
+##### Generate shapefiles
+
 **N.B.** These functions still use the 'sp' package and so the functions may take a while to run.  
+
 
 ```{r, echo=TRUE, results="hide", message=FALSE, eval= FALSE}
 #find and paste snapshot filepath 
@@ -75,6 +79,25 @@ Species <- MR_GIS_Species(snapshot_filepath = filepath, snapshot_version = versi
 
 
 ```
+
+##### Find new surveys
+
+The following function will also need a **32-bit version** of R. 
+
+You will need two versions of a snapshot to compare. This function will work on any table found within the snapshot or access database e.g. 'Sample' table. 
+
+```{r, echo=TRUE, results="hide", message=FALSE, eval= FALSE}
+#find and paste new snapshot filepath 
+filepath_new_snapshot <- "SnapshotDatav51_Public_20180524.mdb"
+
+#find and paste old snapshot filepath 
+filepath_old_snapshot <- "SnapshotDatav51_Public_20180131.mdb"
+
+#run the function on the 'Survey' table where the primary key for the table is survey key
+surveysAdded <- newSurveys(DSN1 = filepath_new_snapshot, tablename1 = "Survey", DSN2 = filepath_old_snapshot, tablename2 = "Survey", primaryKey = "Survey_Key" )
+
+```
+
 
 
 #### 2. Adding and finding missing valid aphia IDs
