@@ -2,7 +2,7 @@
 `marineRecorder` Package <img src="man/figures/logo.png" align="right" width="150" />
 =====================================================================================
 
-A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles and check species, which can be linked to the species dictionary (a separate database used with the main application).
+A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles, find the newly added surveys and check species to update the species dictionary (a separate database used with the main application).
 
 ### Installation of `marineRecorder` Package
 
