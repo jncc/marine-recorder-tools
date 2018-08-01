@@ -1,25 +1,75 @@
 ---
-output: github_document
+title: "marineRecorder"
+author: "Roweena Patel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to marineRecorder}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r, echo = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-"
+  comment = "#>"
 )
 ```
 
-# `marineRecorder` Package <img src="man/figures/logo.png" align="right" width="150" />
+A Marine Recorder R Package was developed to work with the Marine Recorder Application. The functions included in this package create shapefiles, find the newly added surveys and check species to update the species dictionary (a separate database used with the main application). 
 
-A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles, find the newly added surveys and check species to update the species dictionary (a separate database used with the main application). 
+## Introduction 
+
+**Contents of this Vignette:**
+
+* Introduction
+    * Marine Recorder Information, Application and Public Snapshot (Data)
+    * What is Marine Recorder?
+* Installation of `marineRecorder` Package
+* List of functions currently available
+* Examples
+    1. `MR_GIS_Sample()`, `MR_GIS_Species()` and `newSurveys()`
+        * Generate shapefiles
+        * Find new surveys
+    2. Updating the Last Key table in Marine Recorder NBN
+    3. Adding and finding missing valid aphia ID
+    4. Adding, updating and finding missing parent aphia IDs
+    5. Create Shortcodes 
+* Dependencies
+
+
+### Marine Recorder Information, Application and Public Snapshot (Data)
+
+* [Marine Recorder Information and Snapshot](http://jncc.defra.gov.uk/page-1599)
+* [Marine Recorder Application](https://www.esdm.co.uk/marine-recorder)
+
+### What is Marine Recorder?
+Marine Recorder  is the leading database software used by JNCC partner organisations for storing, managing and querying marine benthic sample data such as species, physical attributes and biotopes. It is fullycompatible with the NBN data model, enabling data to be contributed to the NBN Atlas.
+
+It was originally developed to be the marine equivalent of Recorder, but accommodates a much wider range of data, including:
+
+* surveys and samples;
+* species;
+* habitats and biotopes;
+* environmental variables, such as salinity and temperature;
+* physical variables, such as substrate, depth, inclination, sediment type.
+
+In addition, there is also additional modules and tools that assists users in filtering, reporting, querying, disseminating and merging data with other Marine Recorder datasets. These include (correct as of 2018-08-01):
+
+* **MarineSnapshotv515**: takes a NBN data file and creates a useable snapshot database, often used for the majority of work areas (e.g. Habitat Mapping, Assessment etc.).
+* **SnapshotMergev511**: allows users to merge together separate snapshot datasets.
+* **MarineMergev5**: allows users to merge together separate NBN data files.
+* **Marine Recorder reporting wizard**: provides a user interface to allow simpler data querying, also comes with a link to directly map queried data straight into ArcGIS.
+* **MarRecorderTOGateway_v194**: converts all Marine Recorder snapshot data into a NBN-compatible text file, output can be submitted via the NBN Atlas.
+
+
 
 ## Installation of `marineRecorder` Package
 
 ``` {r, echo=TRUE, results="hide", message=FALSE, eval= FALSE}
 # install.packages("devtools")
 library("devtools")
-devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder", build_vignettes = TRUE, force = TRUE)
+devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder", build_vignettes = TRUE, force = TRUE )
 ```
 
 ## List of functions currently available:
@@ -27,6 +77,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 * **MR_GIS_Sample()** - creates a shapefile of samples from the snapshot
 * **MR_GIS_Species()** - creates a shapefile of species from the snapshot
 * **newSurveys()** - find new surveys added to the new snapshot
+* **updateLastKeyNBN()** - fixes 'run time error 3022' when entering data into marine recorder
 * **addParentAphiaIDs()** - adds parent aphia IDs as records to the data frame
 * **addValidAphiaIDs()** - adds valid aphia IDs, if valid aphia IDs are missing from the data frame
 * **createShortcodes()** - creates short codes, first three letters of the first and second word from a given string
@@ -38,7 +89,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 ## Examples
 
-### 1. MR_GIS_Sample(), MR_GIS_Species() and newSurveys()
+### 1. `MR_GIS_Sample()`, `MR_GIS_Species()` and `newSurveys()`
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
@@ -107,6 +158,8 @@ This function was developed as a work around solution to a 'Run-Time Error 3022'
 Please ensure that you are working on a **copy** of the NBN data file and not the original.
 
 The function will automatically update the NBN and return a list of the changes that have been made to the NBN.
+
+To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. See [1. MR_GIS_Sample(), MR_GIS_Species() and newSurveys()] to change your R version.
 
 ```{r,  echo=TRUE, results="hide", message=FALSE, eval= FALSE}
 ## not run

@@ -4,15 +4,17 @@
 
 A Marine Recorder R Package was developed to work with the marine recorder snapshot. The functions included in this package create shapefiles, find the newly added surveys and check species to update the species dictionary (a separate database used with the main application).
 
-### Installation of `marineRecorder` Package
+Installation of `marineRecorder` Package
+----------------------------------------
 
 ``` r
 # install.packages("devtools")
 library("devtools")
-devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder")
+devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder", build_vignettes = TRUE, force = TRUE)
 ```
 
-### List of functions currently available:
+List of functions currently available:
+--------------------------------------
 
 -   **MR\_GIS\_Sample()** - creates a shapefile of samples from the snapshot
 -   **MR\_GIS\_Species()** - creates a shapefile of species from the snapshot
@@ -25,9 +27,10 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 -   **missingValidAphiaIDs()** - identifies the missing valid aphia IDs from the data frame
 -   **updateParentAphiaIDs()** - updates parent aphia ID records
 
-### Examples
+Examples
+--------
 
-#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and NewSurveys()
+### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and newSurveys()
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
@@ -44,7 +47,7 @@ To use these function you will need to use the **32-bit version** of R, for RODB
 
 Also, to use this function you will need to download the Marine Recorder Snapshot available to download from the [JNCC Marine Recorder webpage](http://jncc.defra.gov.uk/page-1599). Once downloaded extract the Snapshot Access Database and copy into your working directory.
 
-##### Generate shapefiles
+#### Generate shapefiles
 
 **N.B.** These functions still use the 'sp' package and so the functions may take a while to run.
 
@@ -66,7 +69,7 @@ Species <- MR_GIS_Species(snapshot_filepath = filepath, snapshot_version = versi
 #[1] "The shapefile ' C2018-07-30_Species_SnapshotDatav51_Public_20180524 ' 'has been saved to your working directory."
 ```
 
-##### Find new surveys
+#### Find new surveys
 
 The following function will also need a **32-bit version** of R.
 
@@ -83,7 +86,28 @@ filepath_old_snapshot <- "SnapshotDatav51_Public_20180131.mdb"
 surveysAdded <- newSurveys(DSN1 = filepath_new_snapshot, tablename1 = "Survey", DSN2 = filepath_old_snapshot, tablename2 = "Survey", primaryKey = "Survey_Key" )
 ```
 
-#### 2. Adding and finding missing valid aphia IDs
+### 2. Updating the Last Key table in Marine Recorder NBN
+
+This function was developed as a work around solution to a 'Run-Time Error 3022'.
+
+**Only** use this function if you encounter "Run-Time Error '3022': The Changes you Requested to the Table were not Successful", when attempting to enter data into Marine Recorder.
+
+Please ensure that you are working on a **copy** of the NBN data file and not the original.
+
+The function will automatically update the NBN and return a list of the changes that have been made to the NBN.
+
+``` r
+## not run
+#find and paste NBN filepath
+filepathNBN<- ""
+
+#run the function
+lastKeyChanges <- updateLastKeyNBN(filepathNBN)
+
+## End (not run)
+```
+
+### 3. Adding and finding missing valid aphia IDs
 
 These two functions find whether there are any missing valid aphia IDs missing from the data frame and adds them in. These examples can also be found in the function help page.
 
@@ -107,7 +131,7 @@ missingValidAphiaIDs(x)
 #[1] "All valid aphiaIDs are also individual records"
 ```
 
-#### 3. Adding, updating and finding missing parent aphia IDs
+### 4. Adding, updating and finding missing parent aphia IDs
 
 These functions find out what the parent aphia ID of given aphia ID is (getParentID), finds out if any parent aphia IDs are missing from the data frame (missingParentAphiaIDs), adds in parent aphia ID records (addParentAphiaIDs) and update the parent aphia IDs (updateParentAphiaIDs).
 
@@ -136,7 +160,7 @@ missingParentAphiaIDs(v)
 #[1] "All parent aphiaIDs are also individual records."
 ```
 
-#### 4. Create Shortcodes
+### 5. Create Shortcodes
 
 This function creates an abbreviation of a given string.
 
@@ -146,7 +170,8 @@ createShortcodes("Salmo salar")
 #[1] "Salsal"
 ```
 
-### Dependencies
+Dependencies
+------------
 
 -   [RCurl](https://cran.r-project.org/web/packages/RCurl/index.html)
 -   [RODBC](https://cran.r-project.org/web/packages/RODBC/index.html)
