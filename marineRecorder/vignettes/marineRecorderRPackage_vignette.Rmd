@@ -69,7 +69,11 @@ In addition, there is also additional modules and tools that assists users in fi
 ``` {r, echo=TRUE, results="hide", message=FALSE, eval= FALSE}
 # install.packages("devtools")
 library("devtools")
+
 devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder", build_vignettes = TRUE, force = TRUE )
+
+
+
 ```
 
 ## List of functions currently available:
