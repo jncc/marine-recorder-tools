@@ -38,13 +38,8 @@ A Marine Recorder R Package was developed to work with the Marine Recorder Appli
 * Dependencies
 
 
-<<<<<<< HEAD
-=======
-
 ## Introduction 
 
-
->>>>>>> 3a52bb245a6e8deb99a822cce52c1b94167b5fc6
 ### Marine Recorder Information, Application and Public Snapshot (Data)
 
 * [Marine Recorder Information and Snapshot](http://jncc.defra.gov.uk/page-1599)
