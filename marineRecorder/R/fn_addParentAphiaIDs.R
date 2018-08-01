@@ -6,9 +6,13 @@
 #' This function differs from those because of the outputs. Four outputs will be generated to identify the Parent Aphia ID records that have been added by their status.
 #'
 #' Outputs:
+#'
 #' dataset - input dataset with missing parents added in. If there is no "Parent_AphiaID" column the function will run the 'updateParentAphiaID' function.
+#'
 #' accepted_missing_parents - missing parent records that have accepted valid AphiaI IDs.
+#'
 #' alt_rep_missing_parents - missing parent records with a valid status of 'alternate representation'.
+#'
 #' other_missing_parents - all other missing parent records (not accepted or an alternate representation).
 #' @param dataset data frame that has the column "AphiaID".
 #' @keywords AphiaID, WoRMS, ParentAphiaID
@@ -23,7 +27,7 @@
 #' # Error in missingParentAphiaIDs(u) :
 #' #  Some Parent AphiaIDs are NA. Re- run 'updateParentAphiaIDs' function.
 #'
-#' #Run update parent IDs function
+#' #run update parent IDs function
 #' v <- updateParentAphiaIDs(u)
 #'
 #' #check for missing parents as individual records

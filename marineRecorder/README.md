@@ -27,7 +27,7 @@ devtools::install_github("jncc/marine-recorder-tools", subdir = "marineRecorder"
 
 ### Examples
 
-#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and NewSurveys()
+#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and newSurveys()
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
