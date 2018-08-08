@@ -35,7 +35,7 @@ newSurveys<-function(DSN1, tablename1, DSN2, tablename2, primaryKey){
   Survey2 <- sqlFetch(con2, tablename2)
 
   #pull out all the data that is not in table 2
-  New <- Survey1[,colname] %in% Survey2[,colname]
+  New <- Survey1[,primaryKey] %in% Survey2[,primaryKey]
   new_in_old <- cbind(New, Survey1)
   results <- subset(new_in_old, new_in_old$New == FALSE)
   results[1]<- NULL
