@@ -77,7 +77,7 @@ MR_GIS_Species <- function(snapshot_filepath, snapshot_version) {
 
 
   #write shape file - this is saved to your working directory
-  filename <- paste0("C", Sys.Date(), "_Sample_", snapshot_version)
+  filename <- paste0("C", Sys.Date(), "_Species_", snapshot_version)
   rgdal::writeOGR(spdf,
                   ".",
                   filename,
