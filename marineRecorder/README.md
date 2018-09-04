@@ -30,11 +30,7 @@ List of functions currently available:
 Examples
 --------
 
-<<<<<<< HEAD
 ### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and newSurveys()
-=======
-#### 1. MR\_GIS\_Sample(), MR\_GIS\_Species() and newSurveys()
->>>>>>> af9a6ef36ec28bc77ea4649d10c4ad8738c42385
 
 To use these function you will need to use the **32-bit version** of R, for RODBC to connect to the Access database. To change the version of R you are using in RStudio:
 
