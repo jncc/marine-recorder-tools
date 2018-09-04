@@ -6,6 +6,6 @@ This repository contains information related to the Marine Recorder Species Dict
 2. **Marine Recorder Species Dictionary Update Process.html** - The raw html file of the species dictionary update process decision tree
     + To view the html file of the 'Marine Recorder Species Dictionary Update Process.html' click [here](http://htmlpreview.github.io/?https://github.com/jncc/marine-recorder-tools/blob/master/speciesDictionary/Marine%20Recorder%20Species%20Dictionary%20Update%20Process.html).
 
-3. **Link to the video of the webinar** - coming soon
+3. **Link to the video of the webinar** - https://attendee.gotowebinar.com/register/7988152479982627331 
 
 
